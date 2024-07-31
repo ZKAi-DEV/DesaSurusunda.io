@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.logo {
+    max-width: 100%;
+    width: 800px;
+    height: auto;
+    margin-right: 20px;
+}
+
+form {
+    text-align: left;
+    margin-top: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 200px;
+}
+
+input {
+    width: calc(100% - 210px);
+    padding: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.signature-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.signature {
+    width: 30%;
+}
+
+.signature p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.signature p:nth-child(2) {
+    height: 50px; /* Adjust the height to provide enough space for the signature */
+}
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .logo {
+        width: 800px !important; /* Pastikan ukuran logo tetap 800px saat dicetak */
+        height: auto !important;
+        margin-right: 20px !important;
+    }
+    form {
+        text-align: left;
+        margin-top: 20px;
+    }
+    label {
+        display: inline-block;
+        width: 200px;
+    }
+    input {
+        width: calc(100% - 210px);
+        padding: 8px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+    button {
+        display: none;
+    }
+    .signature-section {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+        text-align: center;
+    }
+    .signature {
+        width: 30%;
+    }
+    .signature p {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+    }
+    .signature p:nth-child(2) {
+        height: 50px; /* Adjust the height to provide enough space for the signature */
+    }
+}
