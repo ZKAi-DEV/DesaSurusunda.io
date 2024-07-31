@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir Surat Pengantar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="BALAI.png" alt="Logo" class="logo">
+        </div>
+        <h4>SURAT KETERANGAN TIDAK MAMPU</h4>
+        <p>Nomor: 282/SKTM/DSJ/2010.</p>
+        <p>yang bertanda tangan di bawah ini Kepala Desa Surusunda, Kecamatan Karangpucung, Kabupaten Cilacap, Provinsi Jawa Tengah menerangkan dengan sebenarnya bahwa:</p>
+        <form id="sendForm">
+            <div class="form-group">
+                <label for="name">Nama Lengkap:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="ttl">Tempat/Tanggal Lahir:</label>
+                <input type="text" id="ttl" name="ttl">
+            </div>
+            <div class="form-group">
+                <label for="Agama">Agama:</label>
+                <input type="text" id="Agama" name="Agama" list="AgamaOptions">
+                <datalist id="AgamaOptions">
+                    <option value="Islam">
+                    <option value="Kristen">
+                    <option value="Budha">
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="JenisKelamin">Jenis Kelamin:</label>
+                <input type="text" id="JenisKelamin" name="JenisKelamin" list="JenisKelaminOptions"> <!-- Pastikan id dan list sesuai -->
+                <datalist id="JenisKelaminOptions">
+                    <option value="Pria">
+                    <option value="Wanita">
+                    <option value="Waria">
+                </datalist>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat/Tempat Tinggal:</label>
+                <input type="text" id="alamat" name="alamat">
+            
+            <p>Benar nama yang tercantum di atas adalah warga Desa Sumber Jaya Kecamatan Siak Kecil Kabupaten Bengkalis. Dengan sepengetahuan kami dan sesuai data yang ada di kantor Desa, orang tersebut di atas benar keluarga kurang mampu (KELUARGA BERPENGHASILAN RENDAH). Surat Keterangan ini diberikan untuk mendapatkan pelayanan perobatan gratis.</p>
+            
+            <p>Demikian surat keterangan ini dibuat dengan sebenarnya untuk yang bersangkutan dan kiranya dapat dipergunakan seperlunya.</p>
+            
+            <p>TANGGAL: <input type="date" id="tanggal" name="tanggal"></p>
+            
+            <div class="signature-section">
+                
+                <div class="signature">
+                    <p>Camat Surusunda</p>
+                    <p></p>
+                    <p>....................</p>
+                </div>
+                <div class="signature">
+                    <p>Kepala Desa Surusunda</p>
+                    <p></p>
+                    <p>....................</p>
+                </div>
+            </div>
+            <button type="button" onclick="sendToWhatsApp()">Kirim</button>
+            <button type="button" onclick="printForm()">Cetak</button>
+            <button type="button"><a href="../index.html">kembali</a></button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docxtemplater/3.21.0/docxtemplater.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.4.0/pptxgen.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
