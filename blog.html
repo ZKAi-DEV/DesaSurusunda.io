@@ -161,6 +161,95 @@
             </div>
         </div>
         <!-- Header End -->
+         
+
+        <body>
+
+            <h1>Upload File</h1>
+            <form id="uploadForm" class="mb-4">
+                <div class="mb-3">
+                    <input type="text" name="title" class="form-control" placeholder="Judul Berita" required>
+                </div>
+                <div class="mb-3">
+                    <textarea name="content" class="form-control" placeholder="Konten Berita" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="file" name="image" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+            </form>
+            <div id="response" class="mb-4"></div>
+            <div id="uploadedFiles" class="mb-4"></div>
+        
+            <script>
+                document.getElementById('uploadForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Mencegah reload halaman
+                    const formData = new FormData(this);
+                    fetch('/upload', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('response').innerHTML = data.message; // Tampilkan respon dari server
+                        if (data.fileUrl) {
+                            displayUploadedFile({
+                                title: formData.get('title'),
+                                content: formData.get('content'),
+                                fileUrl: data.fileUrl,
+                                fileName: data.fileName
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                });
+        
+                // Fungsi untuk menampilkan file yang di-upload
+                function displayUploadedFile(uploadData) {
+                    const uploadedFiles = document.getElementById('uploadedFiles');
+                    
+                    // Buat elemen div untuk menampilkan judul, konten, dan gambar
+                    const fileContainer = document.createElement('div');
+                    fileContainer.className = 'uploaded-file mb-3';
+        
+                    // Tampilkan judul
+                    const title = document.createElement('h3');
+                    title.textContent = uploadData.title;
+                    fileContainer.appendChild(title);
+        
+                    // Tampilkan konten
+                    const content = document.createElement('p');
+                    content.textContent = uploadData.content;
+                    fileContainer.appendChild(content);
+        
+                    // Tampilkan gambar
+                    const img = document.createElement('img');
+                    img.src = uploadData.fileUrl;
+                    img.alt = uploadData.fileName;
+                    img.className = 'img-fluid';
+                    fileContainer.appendChild(img);
+        
+                    uploadedFiles.appendChild(fileContainer);
+                }
+        
+                // Muat data upload saat halaman dimuat
+                window.onload = function() {
+                    fetch('/uploads-data')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.forEach(uploadData => {
+                            displayUploadedFile(uploadData);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                };
+            </script>
+        </body>
+         
 
 
         <!-- Blog Start -->
