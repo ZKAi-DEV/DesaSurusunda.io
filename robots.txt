@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://github.com/ZKAi-DEV/DesaSurusunda.io/sitemap.xml
